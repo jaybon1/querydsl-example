@@ -31,8 +31,7 @@ public class ProductControllerApiV1 {
             @PageableDefault(sort = "id", direction = Sort.Direction.DESC) Pageable pageable
     ) {
 //        return ResponseEntity.ok(productServiceApiV1.findAllByQueryDsl_Mark_1(predicate, pageable));
-//        return ResponseEntity.ok(productServiceApiV1.findAllByQueryDsl_Mark_2(predicate, pageable));
-        return ResponseEntity.ok(productServiceApiV1.findAllByQueryDsl_Mark_3(idList, predicate, pageable));
+        return ResponseEntity.ok(productServiceApiV1.findAllByQueryDsl_Mark_2(idList, predicate, pageable));
     }
 
 }

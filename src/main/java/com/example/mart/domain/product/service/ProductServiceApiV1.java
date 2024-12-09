@@ -27,14 +27,7 @@ public class ProductServiceApiV1 {
         return ResGetProductsDTOApiV1.of(productEntityPage);
     }
 
-    public ResGetProductsDTOApiV1 findAllByQueryDsl_Mark_2(Predicate predicate, Pageable pageable) {
-        BooleanBuilder booleanBuilder = new BooleanBuilder(predicate);
-        booleanBuilder.and(product.stock.gt(0));
-        Page<Product> productEntityPage = productRepository.findAll(booleanBuilder, pageable);
-        return ResGetProductsDTOApiV1.of(productEntityPage);
-    }
-
-    public ResGetProductsDTOApiV1 findAllByQueryDsl_Mark_3(List<Long> idList, Predicate predicate, Pageable pageable) {
+    public ResGetProductsDTOApiV1 findAllByQueryDsl_Mark_2(List<Long> idList, Predicate predicate, Pageable pageable) {
         BooleanBuilder booleanBuilder = new BooleanBuilder(predicate);
         if (idList != null && !idList.isEmpty()) {
             booleanBuilder.and(product.id.in(idList));

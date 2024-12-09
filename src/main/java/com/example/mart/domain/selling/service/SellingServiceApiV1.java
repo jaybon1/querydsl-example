@@ -13,7 +13,7 @@ public class SellingServiceApiV1 {
 
     private final ProductRepository productRepository;
 
-    public ResGetSellingProductsDTOApiV1 getSellingProductsByQueryDsl(Integer searchType, String searchValue){
+    public ResGetSellingProductsDTOApiV1 getSellingProductsByQueryDsl(Integer searchType, String searchValue) {
         return productRepository.getSellingProductsByQueryDsl(searchType, searchValue);
     }
 
