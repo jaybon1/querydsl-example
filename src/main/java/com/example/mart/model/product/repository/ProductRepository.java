@@ -15,9 +15,11 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
-public interface ProductRepository extends JpaRepository<Product, Long>, ProductRepositoryCustom,
+public interface ProductRepository extends JpaRepository<Product, Long>,
+        ProductRepositoryCustom,
         QuerydslPredicateExecutor<Product>,
-        QuerydslBinderCustomizer<QProduct> {
+        QuerydslBinderCustomizer<QProduct>
+{
 
     @Override
     default void customize(QuerydslBindings querydslBindings, @NotNull QProduct qProduct) {
