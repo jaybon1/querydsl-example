@@ -37,5 +37,10 @@ public class ProductServiceApiV1 {
         return ResGetProductsDTOApiV1.of(productEntityPage);
     }
 
+//    public ResGetProductsDTOApiV1 findAllByQueryDsl_Mark_4(List<Long> idList, Predicate predicate, Pageable pageable) {
+//        Page<Product> productEntityPage = productRepository.findAll(idList, predicate, pageable);
+//        return ResGetProductsDTOApiV1.of(productEntityPage);
+//    }
+
 }
 
