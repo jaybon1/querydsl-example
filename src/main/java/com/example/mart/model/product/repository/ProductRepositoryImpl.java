@@ -1,7 +1,7 @@
 package com.example.mart.model.product.repository;
 
-import com.example.mart.domain.selling.dto.res.QResGetSellingProductsDTOApiV1_Product;
-import com.example.mart.domain.selling.dto.res.ResGetSellingProductsDTOApiV1;
+import com.example.mart.domain.selling.dto.res.QResGetSellingDTOApiV1_Product;
+import com.example.mart.domain.selling.dto.res.ResGetSellingDTOApiV1;
 import com.example.mart.model.product.entity.Product;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.Predicate;
@@ -27,10 +27,10 @@ public class ProductRepositoryImpl implements ProductRepositoryCustom {
     private final JPAQueryFactory jpaQueryFactory;
 
     @Override
-    public ResGetSellingProductsDTOApiV1 getSellingProductsByQueryDsl(Integer searchType, String searchValue) {
-        JPAQuery<ResGetSellingProductsDTOApiV1.Product> query = jpaQueryFactory
-//                .select(Projections.constructor(ResGetSellingProductsDTOApiV1.Product.class
-                .select(new QResGetSellingProductsDTOApiV1_Product( // DTO로 리턴
+    public ResGetSellingDTOApiV1 getSellingWithQueryDsl(Integer searchType, String searchValue) {
+        JPAQuery<ResGetSellingDTOApiV1.Product> query = jpaQueryFactory
+//                .select(Projections.constructor(ResGetSellingDTOApiV1.ProductDTO.class
+                .select(new QResGetSellingDTOApiV1_Product( // DTO로 리턴
                         product.id,
                         new CaseBuilder() // case when,
                                 .when(product.isDiscount.eq(true))
@@ -50,7 +50,7 @@ public class ProductRepositoryImpl implements ProductRepositoryCustom {
                 .join(productMaker).on(product.productMaker.id.eq(productMaker.id)) // 조인
                 .where(customSearch(searchType, searchValue)) // 동적 조건을 위한 함수 호출
                 .orderBy(product.id.desc()); // 역정렬
-        return ResGetSellingProductsDTOApiV1.builder()
+        return ResGetSellingDTOApiV1.builder()
                 .productList(query.fetch())
                 .build();
     }

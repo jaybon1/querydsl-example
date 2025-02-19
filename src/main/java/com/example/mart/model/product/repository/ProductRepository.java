@@ -25,7 +25,7 @@ public interface ProductRepository extends JpaRepository<Product, Long>,
         QuerydslPredicateExecutor<Product>,
         QuerydslBinderCustomizer<QProduct> {
 
-//    default Page<Product> findAll(List<Long> idList, Predicate predicate, Pageable pageable) {
+//    default Page<ProductDTO> findAll(List<Long> idList, Predicate predicate, Pageable pageable) {
 //        BooleanBuilder booleanBuilder = new BooleanBuilder(predicate);
 //        if (idList != null && !idList.isEmpty()) {
 //            booleanBuilder.and(product.id.in(idList));

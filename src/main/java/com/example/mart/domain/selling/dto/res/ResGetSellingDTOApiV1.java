@@ -10,7 +10,7 @@ import java.util.List;
 @Getter
 @Builder
 @AllArgsConstructor
-public class ResGetSellingProductsDTOApiV1 {
+public class ResGetSellingDTOApiV1 {
 
     private List<Product> productList;
 
